@@ -63,9 +63,9 @@
   </style>
 </head>
 <body>
-  <div id="visitor-count">در حال بارگذاری بازدید امروز...</div>
+  <div id="visitor-count">در حال بارگذاری بازدید...</div>
 
-  <h1>برتری بر دیگری تنها در تقواست</h1>
+  <h1>هیچکس برتر نیست مگر در تقوا</h1>
   <img src="image.jpg" alt="مری‌کس بگا زد">
   <br>
   <audio controls>
@@ -81,12 +81,10 @@
   </div>
 
   <script>
-    const today = new Date().toISOString().slice(0, 10);
-    const key = `merix-site-${today}`;
-    fetch(`https://api.countapi.xyz/hit/merix-site/${key}`)
-      .then(res => res.json())
+    fetch("https://visits.deno.dev/merix-site")
+      .then(response => response.json())
       .then(data => {
-        document.getElementById("visitor-count").innerText = `بازدید امروز: ${data.value}`;
+        document.getElementById("visitor-count").innerText = "بازدید کل: " + data.total;
       })
       .catch(() => {
         document.getElementById("visitor-count").innerText = "بازدید قابل نمایش نیست";
