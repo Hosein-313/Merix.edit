@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>به مریکس روی آورید</title>
+  <title>آقا مری‌کس بگا زد</title>
   <style>
     body {
       background-color: #222;
@@ -46,10 +46,22 @@
       font-size: 16px;
       color: #ccc;
     }
+    #visitor-count {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #444;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-family: Tahoma;
+    }
   </style>
 </head>
 <body>
-  <h1>به مریکس روی آورید</h1>
+  <div id="visitor-count">در حال بارگذاری بازدید امروز...</div>
+
+  <h1>هیچکس برتر نیست مگر در تقوا</h1>
   <img src="image.jpg" alt="مری‌کس بگا زد">
   <br>
   <audio controls>
@@ -63,5 +75,18 @@
     <a href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs" target="_blank">اینستاگرام من</a>
     <div class="insta-handle">@merix.edit_</div>
   </div>
+
+  <script>
+    const today = new Date().toISOString().slice(0, 10);
+    const key = `merix-site-${today}`;
+    fetch(`https://api.countapi.xyz/hit/merix-site/${key}`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("visitor-count").innerText = `بازدید امروز: ${data.value}`;
+      })
+      .catch(() => {
+        document.getElementById("visitor-count").innerText = "بازدید قابل نمایش نیست";
+      });
+  </script>
 </body>
 </html>
