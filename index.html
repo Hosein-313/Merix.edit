@@ -12,6 +12,27 @@
       color: white;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
+    }
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .background img {
+      position: absolute;
+      width: 150px;
+      opacity: 0.05;
+      animation: float 10s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(15px); }
+      100% { transform: translateY(0px); }
     }
     .header {
       display: flex;
@@ -44,6 +65,10 @@
     audio {
       margin-top: 20px;
     }
+    .links {
+      text-align: center;
+      margin-top: 20px;
+    }
     .links a {
       display: inline-block;
       margin: 10px;
@@ -52,6 +77,12 @@
       color: white;
       text-decoration: none;
       border-radius: 10px;
+    }
+    .counter {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ccc;
     }
     .video-gallery {
       display: none;
@@ -84,6 +115,13 @@
 </head>
 <body>
 
+<div class="background">
+  <img src="lion_sun.png" style="top: 10%; left: 10%;">
+  <img src="lion_sun.png" style="top: 30%; left: 50%;">
+  <img src="lion_sun.png" style="top: 60%; left: 30%;">
+  <img src="lion_sun.png" style="top: 80%; left: 70%;">
+</div>
+
 <div class="header">
   <h1>هیچکس برتر نیست مگر در تقوا</h1>
   <button onclick="toggleGallery()">🎥 فیلم‌های من</button>
@@ -95,6 +133,16 @@
     <source src="music.mp3" type="audio/mpeg">
     مرورگر شما پشتیبانی نمی‌کند.
   </audio>
+</div>
+
+<div class="links">
+  <a href="https://t.me/EditNameh_IRAN" target="_blank">تلگرام من</a>
+  <a href="https://youtube.com/@war_media2?si=vL-1KqkbPlccfT54" target="_blank">یوتیوب من</a>
+  <a href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs" target="_blank">اینستاگرام من</a>
+</div>
+
+<div class="counter">
+  بازدید امروز: <span id="viewCount">در حال بارگذاری...</span>
 </div>
 
 <div class="video-gallery" id="videoGallery">
@@ -117,6 +165,16 @@ function toggleGallery() {
   const gallery = document.getElementById('videoGallery');
   gallery.style.display = (gallery.style.display === 'none' || gallery.style.display === '') ? 'block' : 'none';
 }
+
+// شمارنده بازدید با API خارجی
+fetch('https://api.countapi.xyz/hit/marix-site/viewcount')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('viewCount').textContent = data.value;
+  })
+  .catch(() => {
+    document.getElementById('viewCount').textContent = 'قابل نمایش نیست';
+  });
 </script>
 
 </body>
