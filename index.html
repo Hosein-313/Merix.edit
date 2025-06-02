@@ -2,63 +2,47 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>آقا مری‌کس بگا زد</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سایت آقا مری‌کس</title>
   <style>
     body {
+      font-family: Tahoma, sans-serif;
       background-color: #111;
       color: white;
-      font-family: Tahoma, sans-serif;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
     }
-    .background-icons {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 0;
-      overflow: hidden;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #222;
+      padding: 10px 20px;
     }
-    .background-icons img {
-      position: absolute;
-      width: 150px;
-      opacity: 0.05;
-      animation: float 6s ease-in-out infinite;
+    .header h1 {
+      font-size: 18px;
+      margin: 0;
     }
-    @keyframes float {
-      0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(1deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
+    .header button {
+      background: #444;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
     }
     .main {
-      position: relative;
-      z-index: 2;
       text-align: center;
-      padding-top: 60px;
+      padding: 20px;
     }
-    img.main-img {
+    .main img {
       max-width: 90%;
       border-radius: 10px;
-      box-shadow: 0 0 25px #000;
+      box-shadow: 0 0 20px #000;
     }
     audio {
       margin-top: 20px;
-    }
-    #visitor-count {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background: #444;
-      color: #fff;
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-family: Tahoma;
-      z-index: 3;
-    }
-    .links {
-      margin-top: 40px;
     }
     .links a {
       display: inline-block;
@@ -68,55 +52,71 @@
       color: white;
       text-decoration: none;
       border-radius: 10px;
-      transition: background 0.3s;
     }
-    .links a:hover {
-      background: #888;
+    .video-gallery {
+      display: none;
+      padding: 20px;
+      background: #1a1a1a;
     }
-    .insta-handle {
+    .video-card {
+      background: #333;
+      padding: 10px;
+      margin: 10px auto;
+      border-radius: 10px;
+      max-width: 400px;
+      box-shadow: 0 0 10px #000;
+    }
+    .video-card video {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .video-card a {
+      display: block;
       margin-top: 10px;
-      font-size: 16px;
-      color: #ccc;
+      background: #007bff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-<div id="visitor-count">در حال بارگذاری بازدید...</div>
-
-<div class="background-icons">
-  <img src="lion_sun.png" style="top:10%; left:15%;">
-  <img src="lion_sun.png" style="top:30%; left:50%;">
-  <img src="lion_sun.png" style="top:60%; left:70%;">
-  <img src="lion_sun.png" style="top:80%; left:20%;">
+<div class="header">
+  <h1>هیچکس برتر نیست مگر در تقوا</h1>
+  <button onclick="toggleGallery()">🎥 فیلم‌های من</button>
 </div>
 
 <div class="main">
-  <h1> هیچکس برتر نیست مگر در تقوا</h1>
-  <img src="image.jpg" class="main-img" alt="مری‌کس بگا زد">
-  <br>
+  <img src="image.jpg" alt="مری‌کس">
   <audio controls>
     <source src="music.mp3" type="audio/mpeg">
-    مرورگر شما از پخش موسیقی پشتیبانی نمی‌کند.
+    مرورگر شما پشتیبانی نمی‌کند.
   </audio>
+</div>
 
-  <div class="links">
-    <a href="https://t.me/EditNameh_IRAN" target="_blank">تلگرام من</a>
-    <a href="https://youtube.com/@war_media2?si=vL-1KqkbPlccfT54" target="_blank">یوتیوب من</a>
-    <a href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs" target="_blank">اینستاگرام من</a>
-    <div class="insta-handle">@merix.edit_</div>
+<div class="video-gallery" id="videoGallery">
+  <div class="video-card">
+    <video controls src="video1.mp4"></video>
+    <a href="https://t.me/Illkenl" target="_blank">📦 دریافت بسته آموزشی ادیت</a>
+  </div>
+  <div class="video-card">
+    <video controls src="video2.mp4"></video>
+    <a href="https://t.me/Illkenl" target="_blank">📦 دریافت بسته آموزشی ادیت</a>
+  </div>
+  <div class="video-card">
+    <video controls src="video3.mp4"></video>
+    <a href="https://t.me/Illkenl" target="_blank">📦 دریافت بسته آموزشی ادیت</a>
   </div>
 </div>
 
 <script>
-fetch("https://visits.deno.dev/merix-site")
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("visitor-count").innerText = "بازدید کل: " + data.total;
-  })
-  .catch(() => {
-    document.getElementById("visitor-count").innerText = "بازدید قابل نمایش نیست";
-  });
+function toggleGallery() {
+  const gallery = document.getElementById('videoGallery');
+  gallery.style.display = (gallery.style.display === 'none' || gallery.style.display === '') ? 'block' : 'none';
+}
 </script>
 
 </body>
