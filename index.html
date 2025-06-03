@@ -2,162 +2,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="سایت رسمی مریکس - ادیتور حرفه‌ای ویدئو با آموزش‌های رایگان">
-  <title>به سایت مریکس خوش اومدید</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>MERIX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Vazirmatn, sans-serif;
-      background-color: #0d0d0d;
-      color: white;
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(to bottom right, #000, #111);
+      color: #fff;
       overflow-x: hidden;
     }
-    .bg {
+    .background {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('lion_sun.png') center center / contain no-repeat;
+      width: 100vw;
+      height: 100vh;
+      background: url('lion_sun.png') center center no-repeat;
+      background-size: cover;
       opacity: 0.05;
-      animation: float 6s ease-in-out infinite;
+      animation: moveBg 20s infinite linear;
       z-index: -1;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+    @keyframes moveBg {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(10px, 10px); }
+      100% { transform: translate(0, 0); }
     }
     header {
       text-align: center;
-      padding: 2rem 1rem 1rem;
-      font-size: 1.5rem;
+      padding: 2rem;
     }
-    .main-image {
-      display: block;
-      margin: auto;
-      max-width: 90%;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-      animation: pulse 3s infinite;
+    header img {
+      width: 90vw;
+      max-width: 700px;
+      animation: float 6s ease-in-out infinite;
+      border-radius: 1rem;
     }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.01); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
-    .socials {
-      text-align: center;
-      margin: 2rem 0;
+    .glass-button {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      color: #fff;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
     }
-    .socials a {
-      margin: 0 10px;
-      font-size: 1.8rem;
-      color: white;
-      backdrop-filter: blur(8px);
-      padding: 10px;
-      border-radius: 15px;
-      background: rgba(255,255,255,0.1);
-      transition: transform 0.3s;
-    }
-    .socials a:hover {
-      transform: scale(1.2);
+    .glass-button:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
     .video-section {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      text-align: center;
+      margin: 3rem 1rem;
     }
-    .video-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 1rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-    }
-    video {
-      width: 100%;
-      border-radius: 10px;
+    .video-section video {
+      width: 90vw;
+      max-width: 700px;
+      margin: 1rem 0;
+      border-radius: 1rem;
     }
     .commentbox {
       margin-top: 1rem;
     }
-    .music-player {
+    .social {
+      margin: 2rem;
+      text-align: center;
+    }
+    .social a {
+      margin: 0 1rem;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .menu-toggle {
       position: fixed;
-      bottom: 10px;
-      left: 10px;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,0.1);
-      padding: 10px;
-      border-radius: 10px;
-      z-index: 10;
+      top: 1rem;
+      right: 1rem;
+      z-index: 99;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .menu {
+      position: fixed;
+      top: 3rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.9);
+      border-radius: 1rem;
       padding: 1rem;
-    }
-    input, button {
-      padding: 10px;
-      margin: 10px;
-      border-radius: 10px;
-      border: none;
-    }
-    .hidden {
       display: none;
+      flex-direction: column;
     }
-    .glass-btn {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 15px;
-      cursor: pointer;
+    .menu a {
+      margin: 0.5rem 0;
+      color: #fff;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="bg"></div>
-  <header>به سایت مریکس خوش اومدید</header>  <img src="image.jpg" alt="تصویر اصلی" class="main-image">  <div class="music-player">
-    <audio autoplay loop controls>
-      <source src="music.mp3" type="audio/mpeg">
-    </audio>
-  </div>  <div class="socials">
-    <a href="https://t.me/EditNameh_IRAN" target="_blank"><i class="fab fa-telegram"></i></a>
-    <a href="https://youtube.com/@war_media2?si=vL-1KqkbPlccfT54" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs" target="_blank"><i class="fab fa-instagram"></i></a>
-  </div>  <form id="signupForm">
-    <input type="text" id="username" placeholder="نام شما">
-    <button type="submit" class="glass-btn">ثبت‌نام</button>
-  </form>  <div id="successMsg" class="hidden">
-    <p>تبریک! شما تبدیل به یک سرباز ایرانی شدید 🇮🇷</p>
-    <p>شماره کارت: 5859831212311293 (مبلغ ۲۰۰ هزار تومان)</p>
-    <p>لطفا رسید را به <a href="https://t.me/Illkenl" target="_blank">t.me/Illkenl</a> ارسال کنید</p>
+  <div class="background"></div>
+  <header>
+    <h1>به سایت مریکس خوش اومدید</h1>
+    <img src="image.jpg" alt="MERIX Main Image">
+  </header>  <div class="social">
+    <a href="https://t.me/EditNameh_IRAN" class="glass-button">تلگرام من</a>
+    <a href="https://youtube.com/@war_media2?si=vL-1KqkbPlccfT54" class="glass-button">یوتیوب من</a>
+    <a href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs" class="glass-button">اینستاگرام من</a>
+    <a href="t.me/Illkenl" class="glass-button">دریافت پک آموزش ادیت</a>
   </div>  <div class="video-section">
-    <div class="video-card">
-      <video src="video1.mp4" controls></video>
-      <div class="commentbox" id="commentbox1"></div>
-    </div>
-    <div class="video-card">
-      <video src="video2.mp4" controls></video>
-      <div class="commentbox" id="commentbox2"></div>
-    </div>
-    <div class="video-card">
-      <video src="video3.mp4" controls></video>
-      <div class="commentbox" id="commentbox3"></div>
-    </div>
-  </div>  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>  <script>
-    commentBox('your-firebase-or-commentbox-id', {
-      className: 'commentbox',
-      defaultBoxId: 'commentbox1'
-    });
-  </script>  <script>
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('signupForm').classList.add('hidden');
-      document.getElementById('successMsg').classList.remove('hidden');
-    });
-  </script></body>
+    <h2>فیلم‌های من</h2>
+    <video src="video1.mp4" controls></video>
+    <div class="commentbox" id="commentbox-video1"></div><video src="video2.mp4" controls></video>
+<div class="commentbox" id="commentbox-video2"></div>
+
+<video src="video3.mp4" controls></video>
+<div class="commentbox" id="commentbox-video3"></div>
+
+  </div>  <div class="menu-toggle">
+    <button class="glass-button" onclick="toggleMenu()">☰ ایران باستان</button>
+  </div>
+  <div class="menu" id="menu">
+    <a href="#" onclick="showGallery('hakh')">پرچم ها و پروفایل های هخامنشی</a>
+    <a href="#" onclick="showGallery('sas')">پرچم ها و پروفایل های ساسانی</a>
+    <a href="#" onclick="showGallery('arak')">پرچم ها و پروفایل های اشکانی</a>
+  </div>
+  <div id="gallery" class="video-section"></div>  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+    function showGallery(type) {
+      const gallery = document.getElementById("gallery");
+      const images = {
+        hakh: ['hakh1.jpg','hakh2.jpg','hakh3.jpg'],
+        sas: ['sas1.jpg','sas2.jpg','sas3.jpg'],
+        arak: ['arak1.jpg','arak2.jpg','arak3.jpg']
+      };
+      gallery.innerHTML = images[type].map(img => `<img src="${img}" style="width:90%;max-width:400px;margin:1rem;border-radius:1rem;">`).join('');
+    }
+  </script>  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD2yuf356FYcRfSNTxcmrufNigjWRNPkjQ",
+      authDomain: "merix-edit.firebaseapp.com",
+      projectId: "merix-edit",
+      storageBucket: "merix-edit.appspot.com",
+      messagingSenderId: "53314644302",
+      appId: "1:53314644302:web:70e3fea1f035828df9d61f",
+      measurementId: "G-VZPYHXZZTV"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script><audio src="music.mp3" autoplay loop></audio>
+
+</body>
 </html>
