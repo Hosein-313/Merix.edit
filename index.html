@@ -1,273 +1,186 @@
-    <!DOCTYPE html><html lang="fa" dir="rtl">
+<!DOCTYPE html><html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سایت مریکس</title>
+  <title>به سایت مریکس خوش اومدید</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #1e1e1e;
-      --secondary-color: #292929;
-      --accent-color: #f39c12;
-      --text-color: #fff;
-    }body {
-  font-family: sans-serif;
-  background-color: var(--primary-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  text-align: center;
-  padding: 2rem 1rem 1rem;
-}
-
-h1 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-
-#counter {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  background: rgba(255,255,255,0.1);
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: 0.9rem;
-}
-
-.main-image {
-  width: 90%;
-  max-width: 300px;
-  display: block;
-  margin: 0 auto;
-  z-index: 2;
-}
-
-.bg-symbols {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.08;
-  z-index: 1;
-  width: 80%;
-  max-width: 400px;
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-10px); }
-}
-
-audio {
-  display: block;
-  margin: 1rem auto;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-}
-
-.social-links a {
-  background: var(--secondary-color);
-  color: var(--text-color);
-  margin: 5px;
-  padding: 8px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: background 0.3s;
-}
-
-.social-links a:hover {
-  background: var(--accent-color);
-}
-
-.section {
-  background: var(--secondary-color);
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 10px;
-}
-
-.section h2 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.section input, .section textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.section button {
-  padding: 10px 15px;
-  background: var(--accent-color);
-  border: none;
-  border-radius: 5px;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.video-card {
-  background: #1c1c1c;
-  border-radius: 10px;
-  padding: 1rem;
-}
-
-.video-card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.video-card video {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.comments textarea {
-  height: 80px;
-}
-
-.comments div {
-  text-align: right;
-  background: #333;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-}
-
-.btn-scroll {
-  display: block;
-  width: 90%;
-  max-width: 300px;
-  margin: 1rem auto;
-  background: #f39c12;
-  color: black;
-  font-weight: bold;
-  border-radius: 8px;
-  padding: 12px;
-  text-align: center;
-  text-decoration: none;
-}
-
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      margin: 0;
+      background-color: #111;
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 1.4rem;
+    }
+    .visitor-counter {
+      font-size: 0.9rem;
+    }
+    .container {
+      padding: 2rem;
+      text-align: center;
+    }
+    .main-image {
+      position: relative;
+      display: inline-block;
+      animation: float 4s infinite ease-in-out;
+    }
+    .main-image img {
+      max-width: 90%;
+      border-radius: 1rem;
+      z-index: 1;
+      position: relative;
+    }
+    .background-animated {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      opacity: 0.15;
+      animation: spin 20s linear infinite;
+    }
+    .social-links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 12px;
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .video-section {
+      margin-top: 3rem;
+    }
+    video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 1rem;
+      margin-top: 1rem;
+    }
+    .glass-button {
+      margin: 1rem auto;
+      padding: 0.6rem 1.2rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 1rem;
+      backdrop-filter: blur(6px);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .glass-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .register-section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+    }
+    input, button {
+      padding: 0.5rem;
+      margin: 0.5rem;
+      border-radius: 8px;
+      border: none;
+    }
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
   </style>
 </head>
 <body>
-  <div id="counter">👁 بازدید امروز: <span id="visits">0</span></div>  <header>
-    <img src="lion_sun.png" alt="شیر و خورشید" class="bg-symbols">
+  <header>
     <h1>به سایت مریکس خوش اومدید</h1>
-    <img src="image.jpg" alt="عکس اصلی" class="main-image">
-  </header>  <audio controls autoplay loop>
-    <source src="music.mp3" type="audio/mp3">
-  </audio>  <div class="social-links">
-    <a href="https://t.me/EditNameh_IRAN" target="_blank">تلگرام من</a>
-    <a href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs" target="_blank">اینستاگرام من</a>
-    <a href="https://youtube.com/@war_media2?si=vL-1KqkbPlccfT54" target="_blank">یوتیوب من</a>
-  </div><a href="#gallery" class="btn-scroll">🎥 فیلم‌های من</a>
+    <div class="visitor-counter">
+      بازدید امروز: <span id="visitorCount">در حال بارگذاری...</span>
+    </div>
+  </header>  <div class="container">
+    <div class="main-image">
+      <img src="image.jpg" alt="main image">
+      <img class="background-animated" src="lion_sun.png" width="400" alt="background effect">
+    </div><div class="social-links">
+  <a href="https://t.me/EditNameh_IRAN" target="_blank">تلگرام من</a>
+  <a href="https://youtube.com/@war_media2?si=vL-1KqkbPlccfT54" target="_blank">یوتیوب من</a>
+  <a href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs" target="_blank">اینستاگرام من</a>
+</div>
 
-  <div class="section">
-    <h2>ثبت‌نام</h2>
-    <input type="text" id="name" placeholder="نام">
-    <input type="text" id="phone" placeholder="شماره تماس">
-    <button onclick="register()">ثبت‌نام</button>
-  </div>  <div class="section" id="card-section" style="display: none;">
-    <h2>💳 شماره کارت</h2>
-    <p dir="ltr">5859 8312 1231 1293</p>
-    <p>💰 مبلغ: ۲۰۰ هزار تومان</p>
-    <p>🧾 لطفا رسید را به <a href="https://t.me/Illkenl" target="_blank">تلگرام</a> ارسال کنید.</p>
-  </div>  <div class="gallery" id="gallery">
-    <div class="video-card">
-      <h3>فیلم اول</h3>
-      <video src="video1.mp4" controls></video>
-      <div><a href="https://t.me/Illkenl" target="_blank">📦 دریافت بسته آموزشی</a></div>
-      <div class="comments">
-        <h4>نظرات:</h4>
-        <textarea id="comment1" placeholder="نظر بنویس..."></textarea>
-        <button onclick="saveComment(1)">ثبت نظر</button>
-        <div id="comments1"></div>
-      </div>
-    </div><div class="video-card">
-  <h3>فیلم دوم</h3>
-  <video src="video2.mp4" controls></video>
-  <div><a href="https://t.me/Illkenl" target="_blank">📦 دریافت بسته آموزشی</a></div>
-  <div class="comments">
-    <h4>نظرات:</h4>
-    <textarea id="comment2" placeholder="نظر بنویس..."></textarea>
-    <button onclick="saveComment(2)">ثبت نظر</button>
-    <div id="comments2"></div>
+<div class="video-section" id="videos">
+  <h2>فیلم‌های من</h2>
+
+  <div>
+    <video controls src="video1.mp4"></video>
+    <button class="glass-button" onclick="window.open('https://t.me/Illkenl', '_blank')">📦 دریافت بسته آموزشی ادیت</button>
+    <div class="commentbox" data-page-id="video1-comments"></div>
+  </div>
+
+  <div>
+    <video controls src="video2.mp4"></video>
+    <button class="glass-button" onclick="window.open('https://t.me/Illkenl', '_blank')">📦 دریافت بسته آموزشی ادیت</button>
+    <div class="commentbox" data-page-id="video2-comments"></div>
+  </div>
+
+  <div>
+    <video controls src="video3.mp4"></video>
+    <button class="glass-button" onclick="window.open('https://t.me/Illkenl', '_blank')">📦 دریافت بسته آموزشی ادیت</button>
+    <div class="commentbox" data-page-id="video3-comments"></div>
   </div>
 </div>
 
-<div class="video-card">
-  <h3>فیلم سوم</h3>
-  <video src="video3.mp4" controls></video>
-  <div><a href="https://t.me/Illkenl" target="_blank">📦 دریافت بسته آموزشی</a></div>
-  <div class="comments">
-    <h4>نظرات:</h4>
-    <textarea id="comment3" placeholder="نظر بنویس..."></textarea>
-    <button onclick="saveComment(3)">ثبت نظر</button>
-    <div id="comments3"></div>
+<div class="register-section">
+  <h2>ثبت‌نام کنید برای دریافت شماره کارت</h2>
+  <form id="registerForm">
+    <input type="text" placeholder="نام شما" required>
+    <input type="email" placeholder="ایمیل" required>
+    <button type="submit">ثبت‌نام</button>
+  </form>
+  <div id="cardInfo" style="display:none; margin-top:1rem;">
+    <p>شماره کارت: <b>5859831212311293</b></p>
+    <p>لطفا رسید را به اینجا ارسال کنید: <a href="https://t.me/Illkenl" target="_blank">t.me/Illkenl</a></p>
+    <p><strong>مبلغ: ۲۰۰ تومان</strong></p>
   </div>
 </div>
 
   </div>  <script>
-    const today = new Date().toLocaleDateString();
-    let visits = localStorage.getItem("visits-" + today) || 0;
-    visits++;
-    localStorage.setItem("visits-" + today, visits);
-    document.getElementById("visits").innerText = visits;
+    document.getElementById("registerForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      document.getElementById("cardInfo").style.display = 'block';
+    });
 
-    function register() {
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      if (name && phone) {
-        localStorage.setItem("registered", "true");
-        document.getElementById("card-section").style.display = "block";
-      } else {
-        alert("لطفا نام و شماره تماس را وارد کنید.");
-      }
-    }
-
-    if (localStorage.getItem("registered") === "true") {
-      document.getElementById("card-section").style.display = "block";
-    }
-
-    function saveComment(id) {
-      const txt = document.getElementById("comment" + id).value.trim();
-      if (!txt) return;
-      const key = "comments" + id;
-      let comments = JSON.parse(localStorage.getItem(key) || "[]");
-      comments.push(txt);
-      localStorage.setItem(key, JSON.stringify(comments));
-      document.getElementById("comment" + id).value = "";
-      showComments(id);
-    }
-
-    function showComments(id) {
-      const key = "comments" + id;
-      let comments = JSON.parse(localStorage.getItem(key) || "[]");
-      document.getElementById("comments" + id).innerHTML = comments.map(c => `<div>${c}</div>`).join("");
-    }
-
-    [1, 2, 3].forEach(showComments);
+    // Visitor Counter
+    fetch('https://api.countapi.xyz/update/merix-site/visits/?amount=1')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('visitorCount').textContent = data.value;
+      });
+  </script>  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>  <script>
+    commentBox('5734877051748352-proj');
   </script></body>
-    </html>
+</html>
