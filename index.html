@@ -1,160 +1,163 @@
-<!DOCTYPE html>
-<html lang="fa">
+<!DOCTYPE html><html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>به سایت مریکس خوش آمدید</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="سایت رسمی مریکس - ادیتور حرفه‌ای ویدئو با آموزش‌های رایگان">
+  <title>به سایت مریکس خوش اومدید</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       margin: 0;
-      font-family: Tahoma, sans-serif;
-      background-color: #000;
-      color: #fff;
-      text-align: center;
+      font-family: Vazirmatn, sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      overflow-x: hidden;
     }
-
-    header {
-      padding: 1rem;
-      background: rgba(0,0,0,0.6);
-      font-size: 1.5em;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero img {
+    .bg {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      background: url('lion_sun.png') center center / contain no-repeat;
+      opacity: 0.05;
       animation: float 6s ease-in-out infinite;
+      z-index: -1;
     }
-
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
+      0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
     }
-
-    .links a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      border-radius: 15px;
-      text-decoration: none;
-      background: rgba(255,255,255,0.1);
-      color: white;
-      border: 1px solid white;
-      transition: 0.3s;
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      font-size: 1.5rem;
     }
-
-    .links a:hover {
-      background: rgba(255,255,255,0.3);
-    }
-
-    .videos {
-      margin: 30px 0;
-    }
-
-    video {
-      width: 90%;
-      max-width: 600px;
-      margin-bottom: 10px;
+    .main-image {
+      display: block;
+      margin: auto;
+      max-width: 90%;
       border-radius: 20px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      animation: pulse 3s infinite;
     }
-
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.01); }
+    }
+    .socials {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .socials a {
+      margin: 0 10px;
+      font-size: 1.8rem;
+      color: white;
+      backdrop-filter: blur(8px);
+      padding: 10px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.1);
+      transition: transform 0.3s;
+    }
+    .socials a:hover {
+      transform: scale(1.2);
+    }
+    .video-section {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .video-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 1rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+    video {
+      width: 100%;
+      border-radius: 10px;
+    }
     .commentbox {
-      margin: 10px auto 40px;
-      width: 90%;
-      max-width: 600px;
+      margin-top: 1rem;
     }
-
-    form {
-      margin-top: 30px;
-    }
-
-    input, button {
+    .music-player {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.1);
       padding: 10px;
       border-radius: 10px;
-      border: none;
+      z-index: 10;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+    input, button {
+      padding: 10px;
       margin: 10px;
+      border-radius: 10px;
+      border: none;
     }
-
-    button {
-      background: rgba(255,255,255,0.1);
-      color: white;
-      border: 1px solid white;
-    }
-
-    button:hover {
-      background: rgba(255,255,255,0.3);
-    }
-
     .hidden {
       display: none;
     }
-
-    .payment {
-      background: rgba(255,255,255,0.05);
-      margin: 20px auto;
-      padding: 20px;
-      width: 90%;
+    .glass-btn {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: none;
+      padding: 10px 20px;
       border-radius: 15px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>به سایت مریکس خوش آمدید</h1>
-</header>
-
-<div class="hero">
-  <img src="image.jpg" alt="عکس اصلی">
-</div>
-
-<div class="links">
-  <a href="https://t.me/EditNameh_IRAN">تلگرام من</a>
-  <a href="https://youtube.com/@war_media2?si=vL-1KqkbPlccfT54">یوتیوب من</a>
-  <a href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs">اینستاگرام من</a>
-</div>
-
-<div class="videos">
-  <video src="video1.mp4" controls></video>
-  <div class="commentbox" id="commentbox-video1"></div>
-
-  <video src="video2.mp4" controls></video>
-  <div class="commentbox" id="commentbox-video2"></div>
-
-  <video src="video3.mp4" controls></video>
-  <div class="commentbox" id="commentbox-video3"></div>
-</div>
-
-<form onsubmit="event.preventDefault(); handleRegister();">
-  <input type="text" id="username" placeholder="نام شما را وارد کنید" required>
-  <button type="submit">ثبت نام</button>
-</form>
-
-<div id="register-success" class="hidden">
-  <p>🎉 تبریک! شما تبدیل به یک سرباز ایرانی شدید.</p>
-</div>
-
-<div id="payment-box" class="payment hidden">
-  <h2>شماره کارت برای پرداخت:</h2>
-  <p dir="ltr" style="font-size: 1.3em;">5859 8312 1231 1293</p>
-  <p>مبلغ: ۲۰۰ هزار تومان</p>
-  <p>لطفاً رسید را به <a href="https://t.me/Illkenl">تلگرام من</a> ارسال کنید.</p>
-</div>
-
-<audio autoplay loop hidden>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  function handleRegister() {
-    document.getElementById("register-success").classList.remove("hidden");
-    document.getElementById("payment-box").classList.remove("hidden");
-  }
-</script>
-
-</body>
+  <div class="bg"></div>
+  <header>به سایت مریکس خوش اومدید</header>  <img src="image.jpg" alt="تصویر اصلی" class="main-image">  <div class="music-player">
+    <audio autoplay loop controls>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+  </div>  <div class="socials">
+    <a href="https://t.me/EditNameh_IRAN" target="_blank"><i class="fab fa-telegram"></i></a>
+    <a href="https://youtube.com/@war_media2?si=vL-1KqkbPlccfT54" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>  <form id="signupForm">
+    <input type="text" id="username" placeholder="نام شما">
+    <button type="submit" class="glass-btn">ثبت‌نام</button>
+  </form>  <div id="successMsg" class="hidden">
+    <p>تبریک! شما تبدیل به یک سرباز ایرانی شدید 🇮🇷</p>
+    <p>شماره کارت: 5859831212311293 (مبلغ ۲۰۰ هزار تومان)</p>
+    <p>لطفا رسید را به <a href="https://t.me/Illkenl" target="_blank">t.me/Illkenl</a> ارسال کنید</p>
+  </div>  <div class="video-section">
+    <div class="video-card">
+      <video src="video1.mp4" controls></video>
+      <div class="commentbox" id="commentbox1"></div>
+    </div>
+    <div class="video-card">
+      <video src="video2.mp4" controls></video>
+      <div class="commentbox" id="commentbox2"></div>
+    </div>
+    <div class="video-card">
+      <video src="video3.mp4" controls></video>
+      <div class="commentbox" id="commentbox3"></div>
+    </div>
+  </div>  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>  <script>
+    commentBox('your-firebase-or-commentbox-id', {
+      className: 'commentbox',
+      defaultBoxId: 'commentbox1'
+    });
+  </script>  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('signupForm').classList.add('hidden');
+      document.getElementById('successMsg').classList.remove('hidden');
+    });
+  </script></body>
 </html>
