@@ -1,137 +1,154 @@
-<!DOCTYPE html><html lang="fa">
+<!DOCTYPE html>
+<html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="سایت رسمی مریکس، آموزش ادیت، فیلم‌ها و ارتباط با ما">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>سایت مریکس</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap">
   <style>
     body {
       margin: 0;
-      font-family: Tahoma, sans-serif;
-      background-color: #111;
-      color: #fff;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #0e0e0e;
+      color: white;
       overflow-x: hidden;
     }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
-      background: rgba(0,0,0,0.6);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    header a {
-      color: cyan;
-      margin-left: 15px;
-      text-decoration: none;
-    }
-    .main-image {
       position: relative;
-      width: 100%;
-      height: 80vh;
-      background: url('lion_sun.png') center center / cover no-repeat;
-      animation: bgMove 10s infinite alternate ease-in-out;
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 2rem;
     }
-    .main-image img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1);
-      max-width: 90%;
-      max-height: 90%;
+    .hero {
+      position: relative;
+      z-index: 2;
       animation: float 3s ease-in-out infinite;
+    }
+    .hero img {
+      width: 90%;
+      max-width: 500px;
+      border-radius: 2rem;
+    }
+    .lion-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('lion_sun.png') center center no-repeat;
+      background-size: contain;
+      opacity: 0.08;
+      animation: rotate 120s linear infinite;
       z-index: 1;
     }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
     @keyframes float {
-      0% { transform: translate(-50%, -50%) scale(1); }
-      50% { transform: translate(-50%, -52%) scale(1.02); }
-      100% { transform: translate(-50%, -50%) scale(1); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
-    @keyframes bgMove {
-      0% { background-position: center top; }
-      100% { background-position: center bottom; }
-    }
-    .glass-btn {
+    .btn {
       background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
-      border-radius: 10px;
-      padding: 10px 20px;
-      margin: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 1rem;
+      padding: 1rem 2rem;
+      margin: 1rem;
+      color: white;
+      backdrop-filter: blur(10px);
       cursor: pointer;
+      transition: all 0.3s ease;
     }
-    .glass-btn:hover {
+    .btn:hover {
       background: rgba(255, 255, 255, 0.2);
     }
-    .video-section {
-      text-align: center;
-      padding: 20px;
-    }
-    iframe, video {
-      max-width: 100%;
-      border-radius: 15px;
-      margin: 10px 0;
-    }
     .socials {
-      text-align: center;
-      margin-top: 20px;
+      margin: 2rem;
     }
-    .socials a {
-      display: inline-block;
-      margin: 0 10px;
-      color: #0ff;
-      text-decoration: none;
+    .video-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
     }
-    .register, .payment {
+    .video-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem;
+      border-radius: 1rem;
+      margin: 1rem;
+      max-width: 90%;
+      backdrop-filter: blur(6px);
+    }
+    .video-card video {
+      width: 100%;
+      border-radius: 1rem;
+    }
+    .form-section {
       text-align: center;
-      padding: 20px;
+      padding: 2rem;
+    }
+    input, button {
+      padding: 1rem;
+      margin: 0.5rem;
+      border-radius: 0.5rem;
+      border: none;
+    }
+    #confirmation {
+      color: lightgreen;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
+  <div class="lion-bg"></div>
   <header>
-    <div>به سایت مریکس خوش اومدید</div>
-    <nav>
-      <a href="#videos">فیلم‌های من</a>
-      <a href="#register">ثبت‌نام</a>
-    </nav>
-  </header>  <div class="main-image">
-    <img src="image.jpg" alt="تصویر اصلی">
-  </div>  <div class="socials">
-    <a href="https://t.me/EditNameh_IRAN" target="_blank">تلگرام من</a>
-    <a href="https://youtube.com/@war_media2?si=vL-1KqkbPlccfT54" target="_blank">یوتیوب من</a>
-    <a href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs" target="_blank">اینستاگرام من</a>
-  </div>  <div class="video-section" id="videos">
-    <h2>فیلم‌های من</h2>
-    <video src="video1.mp4" controls></video>
-    <div id="video1-comments"></div><video src="video2.mp4" controls></video>
-<div id="video2-comments"></div>
+    <h1>به سایت مریکس خوش اومدید</h1>
+    <div class="hero">
+      <img src="image.jpg" alt="Merix Image">
+    </div>
+  </header>
+  <div class="socials" style="text-align: center;">
+    <a class="btn" href="https://t.me/EditNameh_IRAN" target="_blank">تلگرام من</a>
+    <a class="btn" href="https://youtube.com/@war_media2?si=vL-1KqkbPlccfT54" target="_blank">یوتیوب من</a>
+    <a class="btn" href="https://www.instagram.com/merix.edit_?igsh=bDNhcmN1OGFvOHJs" target="_blank">اینستاگرام من</a>
+  </div>
 
-<video src="video3.mp4" controls></video>
-<div id="video3-comments"></div>
+  <div class="video-section">
+    <button class="btn" onclick="document.getElementById('video-gallery').style.display='block'">فیلم‌های من</button>
+    <div id="video-gallery" style="display:none">
+      <div class="video-card">
+        <video controls src="video1.mp4"></video>
+        <div id="comment1"></div>
+      </div>
+      <div class="video-card">
+        <video controls src="video2.mp4"></video>
+        <div id="comment2"></div>
+      </div>
+      <div class="video-card">
+        <video controls src="video3.mp4"></video>
+        <div id="comment3"></div>
+      </div>
+      <a class="btn" href="https://t.me/Illkenl">برای دریافت بسته آموزشی ادیت کلیک کنید</a>
+    </div>
+  </div>
 
-<button class="glass-btn" onclick="window.open('https://t.me/Illkenl', '_blank')">برای دریافت بسته آموزشی ادیت کلیک کنید</button>
+  <div class="form-section">
+    <h2>ثبت نام</h2>
+    <input type="text" id="name" placeholder="نام شما">
+    <button onclick="register()">ثبت نام</button>
+    <div id="confirmation"></div>
+    <div id="bank-info" style="display:none">
+      <p>شماره کارت: <b>5859-8312-1231-1293</b></p>
+      <p>مبلغ: <b>۲۰۰ هزار تومان</b></p>
+      <p>لطفا رسید رو به <a href="https://t.me/Illkenl">این آیدی</a> ارسال کنید.</p>
+    </div>
+  </div>
 
-  </div>  <div class="register" id="register">
-    <h3>ثبت‌نام</h3>
-    <form>
-      <input type="text" placeholder="نام کامل" required><br><br>
-      <input type="email" placeholder="ایمیل" required><br><br>
-      <button type="submit" class="glass-btn">ثبت‌نام</button>
-    </form>
-  </div>  <div class="payment">
-    <h3>پرداخت</h3>
-    <p>در صورت ثبت‌نام، مبلغ ۲۰۰ تومن را به شماره کارت زیر واریز کنید:</p>
-    <strong>5859-8312-1231-1293</strong>
-    <p>رسید را به آیدی زیر ارسال کنید:</p>
-    <a href="https://t.me/Illkenl" target="_blank">t.me/Illkenl</a>
-  </div>  <!-- Firebase SDK و کامنت‌ها -->  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getDatabase, ref, onValue, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
-
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script>
     const firebaseConfig = {
       apiKey: "AIzaSyD2yuf356FYcRfSNTxcmrufNigjWRNPkjQ",
       authDomain: "merix-edit.firebaseapp.com",
@@ -139,54 +156,51 @@
       storageBucket: "merix-edit.appspot.com",
       messagingSenderId: "53314644302",
       appId: "1:53314644302:web:70e3fea1f035828df9d61f",
-      measurementId: "G-VZPYHXZZTV",
-      databaseURL: "https://merix-edit-default-rtdb.firebaseio.com/"
+      databaseURL: "https://merix-edit-default-rtdb.firebaseio.com"
     };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
 
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-
-    function renderComments(videoId) {
-      const container = document.getElementById(videoId + '-comments');
-      const commentsRef = ref(db, 'comments/' + videoId);
-
-      onValue(commentsRef, (snapshot) => {
-        const data = snapshot.val();
-        container.innerHTML = '<h4>نظرات</h4>';
-
-        if (data) {
-          Object.values(data).forEach(comment => {
-            const p = document.createElement('p');
-            p.textContent = comment;
-            p.style.background = '#222';
-            p.style.padding = '10px';
-            p.style.borderRadius = '10px';
-            p.style.marginBottom = '10px';
-            container.appendChild(p);
-          });
-        } else {
-          container.innerHTML += '<p>نظری ثبت نشده است.</p>';
-        }
-
-        const form = document.createElement('form');
-        form.innerHTML = `
-          <textarea placeholder="نظر خود را بنویسید" required style="width:100%;padding:10px;border-radius:10px;"></textarea><button type="submit" style="margin-top:10px;padding:10px 20px;border:none;border-radius:10px;background:#00ffcc;color:#000;">ارسال نظر</button>
-    `;
-    form.onsubmit = (e) => {
-      e.preventDefault();
-      const textarea = form.querySelector('textarea');
-      const newComment = textarea.value;
-      if (newComment.trim()) {
-        push(commentsRef, newComment);
-        textarea.value = '';
+    function register() {
+      const name = document.getElementById('name').value;
+      if (name) {
+        const userRef = db.ref('users').push();
+        userRef.set({ name: name });
+        document.getElementById('confirmation').innerText = "تبریک! شما تبدیل به یک سرباز ایرانی شدید 🇮🇷";
+        document.getElementById('bank-info').style.display = 'block';
       }
     }
-    container.appendChild(form);
-  });
-}
 
-['video1', 'video2', 'video3'].forEach(renderComments);
+    function loadComments() {
+      for (let i = 1; i <= 3; i++) {
+        const commentRef = db.ref('comments/video' + i);
+        const container = document.getElementById('comment' + i);
+        container.innerHTML = '<h4>نظرات:</h4>';
+        commentRef.on('value', snapshot => {
+          container.innerHTML = '<h4>نظرات:</h4>';
+          snapshot.forEach(child => {
+            const p = document.createElement('p');
+            p.innerText = child.val();
+            container.appendChild(p);
+          });
+          const input = document.createElement('input');
+          input.placeholder = "نظر شما...";
+          const btn = document.createElement('button');
+          btn.innerText = "ارسال";
+          btn.onclick = () => {
+            if (input.value.trim()) {
+              commentRef.push(input.value);
+              input.value = '';
+            }
+          };
+          container.appendChild(input);
+          container.appendChild(btn);
+        });
+      }
+    }
 
+    window.onload = loadComments;
   </script>
 </body>
 </html>
+
