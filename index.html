@@ -1,36 +1,190 @@
-
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>سایت مریکس</title>
-  <link rel="stylesheet" href="style.css" />
-  <script type="module" src="firebase.js"></script>
+  <title>مرکس ادیت</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background: black;
+      color: white;
+      overflow-x: hidden;
+    }
+    .hero {
+      position: relative;
+      text-align: center;
+    }
+    .hero img.main-img {
+      width: 80%;
+      max-width: 400px;
+      margin-top: 20px;
+      animation: float 5s infinite ease-in-out;
+      z-index: 1;
+      position: relative;
+    }
+    .bg-deco {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      width: 300px;
+      height: auto;
+      transform: translateX(-50%);
+      opacity: 0.2;
+      animation: floatBg 6s infinite ease-in-out alternate;
+      z-index: 0;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes floatBg {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 10px); }
+    }
+    .glass-button {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .glass-button:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .menu {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 10px;
+      z-index: 10;
+    }
+    .video-section {
+      margin-top: 30px;
+      padding: 10px;
+      text-align: center;
+    }
+    video {
+      width: 90%;
+      max-width: 500px;
+      border-radius: 16px;
+      margin-bottom: 10px;
+    }
+    .social-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .social-links a {
+      display: inline-block;
+      margin: 5px 10px;
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      padding: 5px 15px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>به سایت مریکس خوش اومدید</h1>
-    <audio autoplay loop>
-      <source src="music.mp3" type="audio/mpeg" />
-    </audio>
-    <button id="registerBtn">ثبت‌نام</button>
-    <div id="registerMessage" style="display:none;">تبریک! تبدیل به یک سرباز ایرانی شدید.</div>
-  </header>
-  <main>
-    <img src="image.jpg" alt="تصویر اصلی" class="main-image" />
-    <div id="video-section">
-      <h2>فیلم‌های من</h2>
-      <video src="video1.mp4" controls></video>
-      <div id="comments-video1"></div>
-      <video src="video2.mp4" controls></video>
-      <div id="comments-video2"></div>
-    </div>
-  </main>
-  <script>
-    document.getElementById("registerBtn").onclick = () => {
-      document.getElementById("registerMessage").style.display = "block";
-    };
-  </script>
+
+<div class="menu">
+  <strong>🇮🇷 ایران باستان</strong><br>
+  <button class="glass-button" onclick="showImages('hakh')">هخامنشی</button>
+  <button class="glass-button" onclick="showImages('sas')">ساسانی</button>
+  <button class="glass-button" onclick="showImages('arak')">اشکانی</button>
+</div>
+
+<div class="hero">
+  <img src="lion_sun.png" class="bg-deco" />
+  <h1>به سایت مریکس خوش اومدید</h1>
+  <img src="image.jpg" class="main-img" />
+</div>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<div style="text-align: center; margin-top: 20px;">
+  <button class="glass-button" onclick="window.open('https://t.me/Illkenl', '_blank')">🎁 دریافت پک آموزش ادیت</button>
+</div>
+
+<div class="video-section" id="videos">
+  <h2>🎬 فیلم‌های من</h2>
+
+  <div>
+    <video controls src="video1.mp4"></video>
+    <div class="commentbox" id="video1-comments"></div>
+  </div>
+
+  <div>
+    <video controls src="video2.mp4"></video>
+    <div class="commentbox" id="video2-comments"></div>
+  </div>
+
+  <div>
+    <video controls src="video3.mp4"></video>
+    <div class="commentbox" id="video3-comments"></div>
+  </div>
+</div>
+
+<div class="social-links">
+  <a href="https://t.me/EditNameh_IRAN" target="_blank">تلگرام من</a>
+  <a href="https://www.instagram.com/merix.edit_" target="_blank">اینستاگرام من</a>
+  <a href="https://youtube.com/@war_media2" target="_blank">یوتیوب من</a>
+</div>
+
+<div style="text-align: center; margin: 20px;">
+  <h3>عضویت</h3>
+  <input type="text" id="username" placeholder="نام شما"/>
+  <button class="glass-button" onclick="register()">ثبت نام</button>
+  <p id="register-msg"></p>
+  <div id="card-info" style="display: none;">
+    <p>شماره کارت: <strong>5859831212311293</strong></p>
+    <p>لطفا رسید را به <a href="https://t.me/Illkenl">این تلگرام</a> بفرستید.</p>
+  </div>
+</div>
+
+<!-- تصویرهای تاریخی -->
+<div id="image-gallery" style="text-align:center; margin:20px;"></div>
+
+<!-- Firebase scripts (dummy init for now) -->
+<script>
+function showImages(type) {
+  const images = {
+    hakh: ['hakh1.jpg', 'hakh2.jpg', 'hakh3.jpg'],
+    sas: ['sas1.jpg', 'sas2.jpg', 'sas3.jpg'],
+    arak: ['arak1.jpg', 'arak2.jpg', 'arak3.jpg'],
+  };
+  const gallery = document.getElementById('image-gallery');
+  gallery.innerHTML = '';
+  images[type].forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.style.width = '90%';
+    img.style.maxWidth = '400px';
+    img.style.margin = '10px 0';
+    gallery.appendChild(img);
+  });
+}
+
+function register() {
+  const name = document.getElementById('username').value;
+  if (name.trim()) {
+    document.getElementById('register-msg').textContent = `تبریک ${name}! شما یک سرباز ایرانی شدید.`;
+    document.getElementById('card-info').style.display = 'block';
+  }
+}
+</script>
+
+<!-- Firebase & Comment system should be added properly via Firebase SDK (advanced setup) -->
+
 </body>
 </html>
