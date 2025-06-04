@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>سایت مریکس</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="firebase.js"></script>
+</head>
+<body>
+  <header>
+    <h1>به سایت مریکس خوش اومدید</h1>
+    <audio autoplay loop>
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+    <button id="registerBtn">ثبت‌نام</button>
+    <div id="registerMessage" style="display:none;">تبریک! تبدیل به یک سرباز ایرانی شدید.</div>
+  </header>
+  <main>
+    <img src="image.jpg" alt="تصویر اصلی" class="main-image" />
+    <div id="video-section">
+      <h2>فیلم‌های من</h2>
+      <video src="video1.mp4" controls></video>
+      <div id="comments-video1"></div>
+      <video src="video2.mp4" controls></video>
+      <div id="comments-video2"></div>
+    </div>
+  </main>
+  <script>
+    document.getElementById("registerBtn").onclick = () => {
+      document.getElementById("registerMessage").style.display = "block";
+    };
+  </script>
+</body>
+</html>
